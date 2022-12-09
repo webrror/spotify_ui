@@ -78,20 +78,46 @@ class Playlist extends StatelessWidget {
                             SizedBox(
                               height: screenHeight * 0.01,
                             ),
-                            const Text(
-                              'Made for Jerin',
-                              style: TextStyle(
-                                  color: Colors.white70,
-                                  fontWeight: FontWeight.w300),
-                            ),
+                            data['by'] == null
+                                ? const Text(
+                                    'Made for Jerin',
+                                    style: TextStyle(
+                                        color: Colors.white70,
+                                        fontWeight: FontWeight.w300),
+                                  )
+                                : Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 12,
+                                        backgroundImage:
+                                            NetworkImage(data['byAvatar']),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(left: 8.0),
+                                        child: Text(data['by']),
+                                      )
+                                    ],
+                                  ),
                             SizedBox(
                               height: screenHeight * 0.01,
                             ),
-                            Text(
-                              data['duration'],
-                              style: const TextStyle(
-                                  color: Colors.white70,
-                                  fontWeight: FontWeight.w300),
+                            Row(
+                              children: [
+                                if (data['by'] != null)
+                                  Text(
+                                    '${data['likes']} likes・',
+                                    style: const TextStyle(
+                                        color: Colors.white70,
+                                        fontWeight: FontWeight.w300),
+                                  ),
+                                Text(
+                                  data['duration'],
+                                  style: const TextStyle(
+                                      color: Colors.white70,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                              ],
                             ),
                             SizedBox(
                               height: screenHeight * 0.01,
@@ -126,7 +152,8 @@ class Playlist extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 20.0),
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.greenAccent[400], shape: BoxShape.circle),
+                            color: Colors.greenAccent[400],
+                            shape: BoxShape.circle),
                         child: IconButton(
                           icon: const Icon(FluentIcons.play_20_filled),
                           padding: const EdgeInsets.all(15),
@@ -139,7 +166,6 @@ class Playlist extends StatelessWidget {
                   ),
                 ],
               ),
-
               ListView.builder(
                 shrinkWrap: true,
                 padding: const EdgeInsets.only(top: 15, bottom: 50),
@@ -150,7 +176,7 @@ class Playlist extends StatelessWidget {
                     contentPadding: EdgeInsets.zero,
                     horizontalTitleGap: 0,
                     leading: Padding(
-                      padding: const EdgeInsets.only(left:20.0, right: 15),
+                      padding: const EdgeInsets.only(left: 20.0, right: 15),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(2),
                         child: Image.network(
@@ -159,16 +185,29 @@ class Playlist extends StatelessWidget {
                         ),
                       ),
                     ),
-                    title: Text(songData['name'], style: const TextStyle(fontSize: 16), maxLines: 1, overflow: TextOverflow.ellipsis,),
-                    subtitle: Text(songData['artist'], style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w300),maxLines: 1, overflow: TextOverflow.ellipsis),
+                    title: Text(
+                      songData['name'],
+                      style: const TextStyle(fontSize: 16),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    subtitle: Text(songData['artist'],
+                        style: const TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w300),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis),
                     trailing: Padding(
                       padding: const EdgeInsets.only(right: 15.0),
                       child: Wrap(
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
-                          songData['isLiked'] 
-                          ? Icon(FluentIcons.heart_20_filled, color: Colors.greenAccent[400],)
-                          : const SizedBox(),
+                          songData['isLiked']
+                              ? Icon(
+                                  FluentIcons.heart_20_filled,
+                                  color: Colors.greenAccent[400],
+                                  size: 20,
+                                )
+                              : const SizedBox(),
                           IconButton(
                             icon: const Icon(
                                 FluentIcons.more_vertical_20_regular),
@@ -182,8 +221,6 @@ class Playlist extends StatelessWidget {
                   );
                 },
                 itemCount: songs.length,
-                
-                
               )
             ]))
           ],

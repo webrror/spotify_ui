@@ -2,12 +2,15 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:spotify_ui/data/data.dart';
+import 'package:spotify_ui/screens/album.dart';
 import 'package:spotify_ui/screens/playlist.dart';
 import 'package:spotify_ui/utils/timeRange.dart';
 import 'package:spotify_ui/widgets/personalCard.dart';
 import 'package:spotify_ui/widgets/recentSmallCard.dart';
 import 'package:spotify_ui/widgets/recommendCard.dart';
 import 'package:spotify_ui/widgets/title.dart';
+
+import 'liked.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -96,8 +99,29 @@ class Home extends StatelessWidget {
             ),
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
+                var data = recentSmallCards[index];
+                
                 return Bounceable(
-                  onTap: () {},
+                  onTap: () {
+                    if (data['type'] == 'Liked') {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Liked(
+                              data: data,
+                            ),
+                          ));
+                    } else if (data['type'] == 'Album' ||
+                        data['type'] == 'Single') {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Album(
+                              data: data,
+                            ),
+                          ));
+                    }
+                  },
                   child: RecentSmallCard(
                       imageUrl: recentSmallCards[index]['imageUrl'],
                       title: recentSmallCards[index]['title']),
@@ -161,9 +185,39 @@ class Home extends StatelessWidget {
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return PersonalCard(
-                        title: recentlyPlayed[index]['title'],
-                        imageUrl: recentlyPlayed[index]['imageUrl']);
+                    var data = recentlyPlayed[index];
+
+                    return Bounceable(
+                      onTap: () {
+                        if (data['type'] == 'Playlist') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Playlist(data: data),
+                              ));
+                        } else if (data['type'] == 'Liked') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Liked(
+                                  data: data,
+                                ),
+                              ));
+                        } else if (data['type'] == 'Album' ||
+                            data['type'] == 'Single') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Album(
+                                  data: data,
+                                ),
+                              ));
+                        }
+                      },
+                      child: PersonalCard(
+                          title: recentlyPlayed[index]['title'],
+                          imageUrl: recentlyPlayed[index]['imageUrl']),
+                    );
                   },
                   itemCount: recentlyPlayed.length,
                   // separatorBuilder: (context, index) {
@@ -191,11 +245,14 @@ class Home extends StatelessWidget {
                 child: ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return const PersonalCard(
-                      title: 'Create a Blend',
-                      imageUrl:
-                          'https://res.cloudinary.com/jgarden/image/upload/v1670514640/Spotify%20UI/Common/xhmwp2ti6eqo3nlxdzaq.jpg',
-                      description: 'A playlist for you and a friend.',
+                    return Bounceable(
+                      onTap: () {},
+                      child: const PersonalCard(
+                        title: 'Create a Blend',
+                        imageUrl:
+                            'https://res.cloudinary.com/jgarden/image/upload/v1670514640/Spotify%20UI/Common/xhmwp2ti6eqo3nlxdzaq.jpg',
+                        description: 'A playlist for you and a friend.',
+                      ),
                     );
                   },
                   itemCount: 1,
@@ -226,9 +283,19 @@ class Home extends StatelessWidget {
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return RecommendCard(
-                        description: indiaBest[index]['description'],
-                        imageUrl: indiaBest[index]['imageUrl']);
+                    var data = indiaBest[index];
+                    return Bounceable(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Playlist(data: data),
+                            ));
+                      },
+                      child: RecommendCard(
+                          description: indiaBest[index]['description'],
+                          imageUrl: indiaBest[index]['imageUrl']),
+                    );
                   },
                   itemCount: indiaBest.length,
                   // separatorBuilder: (context, index) {
@@ -256,9 +323,19 @@ class Home extends StatelessWidget {
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return RecommendCard(
-                        description: charts[index]['description'],
-                        imageUrl: charts[index]['imageUrl']);
+                    var data = charts[index];
+                    return Bounceable(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Playlist(data: data),
+                            ));
+                      },
+                      child: RecommendCard(
+                          description: charts[index]['description'],
+                          imageUrl: charts[index]['imageUrl']),
+                    );
                   },
                   itemCount: charts.length,
                   // separatorBuilder: (context, index) {
@@ -286,9 +363,19 @@ class Home extends StatelessWidget {
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return RecommendCard(
-                        description: moods[index]['description'],
-                        imageUrl: moods[index]['imageUrl']);
+                    var data = moods[index];
+                    return Bounceable(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Playlist(data: data),
+                            ));
+                      },
+                      child: RecommendCard(
+                          description: moods[index]['description'],
+                          imageUrl: moods[index]['imageUrl']),
+                    );
                   },
                   itemCount: moods.length,
                   // separatorBuilder: (context, index) {
@@ -316,10 +403,31 @@ class Home extends StatelessWidget {
                 child: ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return PersonalCard(
-                        title: newReleases[index]['title'],
-                        description: newReleases[index]['description'],
-                        imageUrl: newReleases[index]['imageUrl']);
+                    var data = newReleases[index];
+                    return Bounceable(
+                      onTap: () {
+                        if (data['type'] == 'Playlist') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Playlist(data: data),
+                              ));
+                        } else if (data['type'] == 'Album' ||
+                            data['type'] == 'Single') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Album(
+                                  data: data,
+                                ),
+                              ));
+                        }
+                      },
+                      child: PersonalCard(
+                          title: newReleases[index]['title'],
+                          description: newReleases[index]['description'],
+                          imageUrl: newReleases[index]['imageUrl']),
+                    );
                   },
                   itemCount: newReleases.length,
                   // separatorBuilder: (context, index) {
