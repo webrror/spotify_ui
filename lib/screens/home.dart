@@ -100,7 +100,7 @@ class Home extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 var data = recentSmallCards[index];
-                
+
                 return Bounceable(
                   onTap: () {
                     if (data['type'] == 'Liked') {

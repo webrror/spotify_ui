@@ -4,7 +4,6 @@ import 'package:spotify_ui/screens/home.dart';
 import 'package:spotify_ui/screens/library.dart';
 import 'package:spotify_ui/screens/search.dart';
 
-
 class Base extends StatefulWidget {
   const Base({super.key});
 
@@ -15,11 +14,7 @@ class Base extends StatefulWidget {
 class _BaseState extends State<Base> {
   int currentIndex = 0;
 
-  List<Widget> mainBodies = [
-    const Home(),
-    const Search(),
-    const Library()
-  ];
+  List<Widget> mainBodies = [const Home(), const Search(), const Library()];
 
   void changeTab(int index) {
     setState(() {
@@ -34,7 +29,7 @@ class _BaseState extends State<Base> {
       body: Stack(
         children: [
           mainBodies[currentIndex],
-        
+
           // Bottom Navigation Bar
           Align(
             alignment: Alignment.bottomCenter,
