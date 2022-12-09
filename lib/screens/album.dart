@@ -33,7 +33,7 @@ class Album extends StatelessWidget {
                   collapseMode: CollapseMode.parallax,
                   centerTitle: true,
                   title: AnimatedOpacity(
-                      duration: const Duration(milliseconds: 400),
+                      duration: const Duration(milliseconds: 100),
                       opacity: top <= 130 ? 1.0 : 0.0,
                       child: Text(data['title'])),
                   background: Container(

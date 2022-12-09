@@ -226,6 +226,7 @@ List<Map> recentlyPlayed = [
   {
     'id':2,
     'imageUrl':'https://res.cloudinary.com/jgarden/image/upload/v1670513754/Spotify%20UI/Common/miiqvskx3mixs87evrvu.jpg',
+    'title': 'Your Top Songs 2022',
     'name': 'Your Top Songs 2022',
     'description':
         'Spotify Wrapped presents the songs that you loved most this year.',

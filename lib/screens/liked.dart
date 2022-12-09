@@ -59,7 +59,7 @@ class _LikedState extends State<Liked> {
                   title: AnimatedOpacity(
                       curve: Curves.easeOut,
                       duration: const Duration(milliseconds: 100),
-                      opacity: top < 105 ? 1 : 0.0,
+                      opacity: top < 130 ? 1 : 0.0,
                       child: Text(widget.data['title'])),
                   background: Container(
                     decoration: BoxDecoration(
