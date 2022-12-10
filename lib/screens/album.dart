@@ -81,7 +81,7 @@ class Album extends StatelessWidget {
                           Row(
                             children: [
                               CircleAvatar(
-                                radius: 14,
+                                radius: 11,
                                 backgroundImage:
                                     NetworkImage(data['artistAvatar']),
                               ),

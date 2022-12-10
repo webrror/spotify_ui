@@ -67,22 +67,28 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.only(left: screenWidth * 0.035),
               child: Row(
                 children: [
-                  Chip(
-                    backgroundColor: Colors.black12,
-                    label: const Text('Music'),
-                    labelStyle: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: screenHeight / 64.92),
+                  Bounceable(
+                    onTap: () {},
+                    child: Chip(
+                      backgroundColor: Colors.black12,
+                      label: const Text('Music'),
+                      labelStyle: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: screenHeight / 64.92),
+                    ),
                   ),
                   SizedBox(
                     width: screenWidth * 0.015,
                   ),
-                  Chip(
-                    backgroundColor: Colors.black12,
-                    label: const Text('Podcasts & Shows'),
-                    labelStyle: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: screenHeight / 64.92),
+                  Bounceable(
+                    onTap: () {},
+                    child: Chip(
+                      backgroundColor: Colors.black12,
+                      label: const Text('Podcasts & Shows'),
+                      labelStyle: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: screenHeight / 64.92),
+                    ),
                   )
                 ],
               ),
@@ -91,7 +97,7 @@ class Home extends StatelessWidget {
         ),
         SliverPadding(
           padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.03, vertical: screenHeight * 0.01),
+              horizontal: screenWidth * 0.025, vertical: screenHeight * 0.01),
           sliver: SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,

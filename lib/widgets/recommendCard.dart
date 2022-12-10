@@ -25,6 +25,7 @@ class RecommendCard extends StatelessWidget {
             height: 150,
             width: 150,
             decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(2),
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(imageUrl)

@@ -88,7 +88,7 @@ class Playlist extends StatelessWidget {
                                 : Row(
                                     children: [
                                       CircleAvatar(
-                                        radius: 12,
+                                        radius: 11,
                                         backgroundImage:
                                             NetworkImage(data['byAvatar']),
                                       ),
