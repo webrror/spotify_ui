@@ -34,10 +34,10 @@ class SearchCategoryCard extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: -18,
-              bottom: -10,
+              right: -15,
+              bottom: -5,
               child: Transform.rotate(
-                angle: math.pi / 5,
+                angle: math.pi / 8,
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),

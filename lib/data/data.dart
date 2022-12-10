@@ -648,10 +648,10 @@ List<Map> searchCategories = [
     "color": const Color(0xFF1E3164)
   },
   {
-    "title": "Pop",
+    "title": "New Releases",
     "image":
-        "https://res.cloudinary.com/jgarden/image/upload/v1670653507/Spotify%20UI/Search%20Categories/vgfaa9uhcc6mg0wipa3n.jpg",
-    "color": const Color(0xFF148A06)
+        "https://res.cloudinary.com/jgarden/image/upload/v1670652858/Spotify%20UI/Search%20Categories/pkiux4hroofk5p4u2xpy.jpg",
+    "color": const Color(0xFFB02797)
   },
   {
     "title": "Discover",
@@ -660,22 +660,28 @@ List<Map> searchCategories = [
     "color": const Color(0xFF8C67AB)
   },
   {
+    "title": "Pop",
+    "image":
+        "https://res.cloudinary.com/jgarden/image/upload/v1670653507/Spotify%20UI/Search%20Categories/vgfaa9uhcc6mg0wipa3n.jpg",
+    "color": const Color(0xFF148A06)
+  },
+  {
     "title": "Student",
     "image":
         "https://res.cloudinary.com/jgarden/image/upload/v1670657246/Spotify%20UI/Search%20Categories/dek41j8bo3zeudrrz57a.jpg",
     "color": const Color(0xFFBA5D08)
   },
   {
-    "title": "2022 Wrapped",
+    "title": "Chill",
     "image":
-        "https://res.cloudinary.com/jgarden/image/upload/v1670652541/Spotify%20UI/Search%20Categories/r4bj2ifgbmzs2siypvhi.jpg",
-    "color": const Color(0xFF8400E7)
+        "https://res.cloudinary.com/jgarden/image/upload/v1670653103/Spotify%20UI/Search%20Categories/ahzaayxvpwl1ihrhfptf.jpg",
+    "color": const Color(0xFFD74000)
   },
   {
-    "title": "2022 Wrapped",
+    "title": "Gaming",
     "image":
-        "https://res.cloudinary.com/jgarden/image/upload/v1670652541/Spotify%20UI/Search%20Categories/r4bj2ifgbmzs2siypvhi.jpg",
-    "color": const Color(0xFF8400E7)
+        "https://res.cloudinary.com/jgarden/image/upload/v1670653125/Spotify%20UI/Search%20Categories/cybfeacrswbwoqeq8mts.jpg",
+    "color": const Color(0xFFE8105B)
   },
   {
     "title": "Charts",
@@ -684,39 +690,40 @@ List<Map> searchCategories = [
     "color": const Color(0xFF8C67AB)
   },
   {
-    "title": "2022 Wrapped",
+    "title": "TV & Movies",
     "image":
-        "https://res.cloudinary.com/jgarden/image/upload/v1670652541/Spotify%20UI/Search%20Categories/r4bj2ifgbmzs2siypvhi.jpg",
+        "https://res.cloudinary.com/jgarden/image/upload/v1670653740/Spotify%20UI/Search%20Categories/dqrlejfznx8hmtuezztx.jpg",
+    "color": const Color(0xFFAF2796)
+  },
+  {
+    "title": "Alternative",
+    "image":
+        "https://res.cloudinary.com/jgarden/image/upload/v1670653294/Spotify%20UI/Search%20Categories/vdxkkvuzepb43sqxv2sj.jpg",
+    "color": const Color(0xFFE91528)
+  },
+  {
+    "title": "EQUAL",
+    "image":
+        "https://res.cloudinary.com/jgarden/image/upload/v1670678296/Spotify%20UI/Search%20Categories/c0rdui4eosd8hn6gcgfl.jpg",
+    "color": const Color(0xFF056852)
+  },
+  {
+    "title": "Travel",
+    "image":
+        "https://res.cloudinary.com/jgarden/image/upload/v1670679874/Spotify%20UI/Search%20Categories/mjqojrcyqxqst5bt6dw5.jpg",
     "color": const Color(0xFF8400E7)
   },
   {
-    "title": "2022 Wrapped",
+    "title": "Focus",
     "image":
-        "https://res.cloudinary.com/jgarden/image/upload/v1670652541/Spotify%20UI/Search%20Categories/r4bj2ifgbmzs2siypvhi.jpg",
-    "color": const Color(0xFF8400E7)
+        "https://res.cloudinary.com/jgarden/image/upload/v1670681027/Spotify%20UI/Search%20Categories/azj81be9xhviwbnl4ytk.jpg",
+    "color": const Color(0xFF4F3750)
   },
   {
-    "title": "2022 Wrapped",
+    "title": "RADAR",
     "image":
-        "https://res.cloudinary.com/jgarden/image/upload/v1670652541/Spotify%20UI/Search%20Categories/r4bj2ifgbmzs2siypvhi.jpg",
-    "color": const Color(0xFF8400E7)
+        "https://res.cloudinary.com/jgarden/image/upload/v1670683078/Spotify%20UI/Search%20Categories/ukndwcpxtn3ysggitcmz.jpg",
+    "color": const Color(0xFF777777)
   },
-  {
-    "title": "2022 Wrapped",
-    "image":
-        "https://res.cloudinary.com/jgarden/image/upload/v1670652541/Spotify%20UI/Search%20Categories/r4bj2ifgbmzs2siypvhi.jpg",
-    "color": const Color(0xFF8400E7)
-  },
-  {
-    "title": "2022 Wrapped",
-    "image":
-        "https://res.cloudinary.com/jgarden/image/upload/v1670652541/Spotify%20UI/Search%20Categories/r4bj2ifgbmzs2siypvhi.jpg",
-    "color": const Color(0xFF8400E7)
-  },
-  {
-    "title": "2022 Wrapped",
-    "image":
-        "https://res.cloudinary.com/jgarden/image/upload/v1670652541/Spotify%20UI/Search%20Categories/r4bj2ifgbmzs2siypvhi.jpg",
-    "color": const Color(0xFF8400E7)
-  },
+  
 ];
