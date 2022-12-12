@@ -1,11 +1,97 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
+import 'package:spotify_ui/screens/playlist.dart';
+import 'package:spotify_ui/widgets/customLibraryCard.dart';
+import 'package:spotify_ui/widgets/customLibraryListTile.dart';
 
-import '../utils/timeRange.dart';
+import '../data/data.dart';
+import 'album.dart';
+import 'liked.dart';
 
-class Library extends StatelessWidget {
+class Library extends StatefulWidget {
   const Library({super.key});
+
+  @override
+  State<Library> createState() => _LibraryState();
+}
+
+class _LibraryState extends State<Library> {
+  bool isGrid = true;
+
+  Future openBottomSheet() {
+    return showModalBottomSheet(
+      isScrollControlled: false,
+      backgroundColor: Colors.grey[900],
+      elevation: 5,
+      context: context,
+      isDismissible: true,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      builder: (context) {
+        return ListView(
+          physics: const BouncingScrollPhysics(),
+          shrinkWrap: true,
+          padding: const EdgeInsets.only(left: 5),
+          children: const [
+            Center(
+                child: Icon(
+              FluentIcons.line_horizontal_1_20_filled,
+              size: 27,
+              color: Colors.white24,
+            )),
+            Padding(
+              padding: EdgeInsets.only(top: 5, bottom: 10),
+              child: Center(
+                child: Text(
+                  'Create',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ListTile(
+              leading: Icon(
+                FluentIcons.music_note_2_20_regular,
+                color: Colors.white54,
+                size: 28,
+              ),
+              title: Text(
+                'Playlist',
+              ),
+              subtitle: Text(
+                'Add songs to a new playlist',
+                style: TextStyle(fontSize: 12),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ListTile(
+              leading: Icon(
+                FluentIcons.sound_wave_circle_20_regular,
+                color: Colors.white54,
+                size: 28,
+              ),
+              title: Text(
+                'Blend',
+              ),
+              subtitle: Text(
+                'Combine tastes in a shared playlist with friends',
+                style: TextStyle(fontSize: 12),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +101,10 @@ class Library extends StatelessWidget {
       slivers: [
         SliverAppBar(
           backgroundColor: const Color.fromARGB(255, 22, 22, 22),
-          elevation: 0,
+          elevation: 5,
           centerTitle: false,
           //toolbarHeight: screenHeight * 0.11,
-
+          forceElevated: true,
           title: Row(
             children: const [
               CircleAvatar(
@@ -49,7 +135,7 @@ class Library extends StatelessWidget {
             Bounceable(
                 curve: Curves.bounceOut,
                 reverseCurve: Curves.bounceIn,
-                onTap: () {},
+                onTap: openBottomSheet,
                 child: const Icon(FluentIcons.add_20_regular)),
             SizedBox(
               width: screenWidth * 0.03,
@@ -58,7 +144,8 @@ class Library extends StatelessWidget {
           bottom: PreferredSize(
             preferredSize: Size(screenWidth, screenHeight * 0.06),
             child: Padding(
-              padding: EdgeInsets.only(left: screenWidth * 0.035),
+              padding: EdgeInsets.only(
+                  left: screenWidth * 0.035, bottom: screenHeight * 0.005),
               child: Row(
                 children: [
                   Bounceable(
@@ -115,6 +202,147 @@ class Library extends StatelessWidget {
             ),
           ),
         ),
+        SliverList(
+            delegate: SliverChildListDelegate([
+          Padding(
+            padding: const EdgeInsets.only(top: 10, right: 5, left: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TextButton(
+                    style: TextButton.styleFrom(foregroundColor: Colors.white),
+                    onPressed: () {},
+                    child: Row(
+                      children: const [
+                        Padding(
+                          padding: EdgeInsets.only(right: 8.0),
+                          child: Icon(
+                            FluentIcons.arrow_sort_20_regular,
+                            size: 20,
+                          ),
+                        ),
+                        Text('Alphabetical')
+                      ],
+                    )),
+                IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isGrid = !isGrid;
+                      });
+                    },
+                    icon: isGrid
+                        ? const Icon(FluentIcons.apps_list_20_regular)
+                        : const Icon(FluentIcons.grid_20_regular)),
+              ],
+            ),
+          ),
+          isGrid
+              ? GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisExtent: screenHeight * 0.28,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding:
+                      const EdgeInsets.only(bottom: 150, left: 10, right: 10),
+                  itemBuilder: (context, index) {
+                    var data = library[index];
+                    return Bounceable(
+                      onTap: () {
+                        if (data['type'] == 'Playlist') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Playlist(data: data),
+                              ));
+                        } else if (data['type'] == 'Liked') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Liked(
+                                  data: data,
+                                ),
+                              ));
+                        } else if (data['type'] == 'Album' ||
+                            data['type'] == 'Single') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Album(
+                                  data: data,
+                                ),
+                              ));
+                        }
+                      },
+                      child: Center(
+                        child: CustomLibraryCard(
+                          imageUrl: library[index]['imageUrl'],
+                          title: library[index]['title'],
+                          type: library[index]['type'],
+                          isPinned: library[index]['isPinned'],
+                          artist: library[index]['artist'],
+                        ),
+                      ),
+                      // child: RecentSmallCard(
+                      //     imageUrl: recentSmallCards[index]['imageUrl'],
+                      //     title: recentSmallCards[index]['title']),
+                    );
+                  },
+                  itemCount: library.length,
+                )
+              : ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding: const EdgeInsets.only(
+                    bottom: 150,
+                  ),
+                  itemBuilder: (context, index) {
+                    var data = library[index];
+                    return Bounceable(
+                      onTap: () {
+                        if (data['type'] == 'Playlist') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Playlist(data: data),
+                              ));
+                        } else if (data['type'] == 'Liked') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Liked(
+                                  data: data,
+                                ),
+                              ));
+                        } else if (data['type'] == 'Album' ||
+                            data['type'] == 'Single') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Album(
+                                  data: data,
+                                ),
+                              ));
+                        }
+                      },
+                      child: CustomLibraryListTile(
+                        imageUrl: library[index]['imageUrl'],
+                        title: library[index]['title'],
+                        type: library[index]['type'],
+                        isPinned: library[index]['isPinned'],
+                        artist: library[index]['artist'],
+                      ),
+                      // child: RecentSmallCard(
+                      //     imageUrl: recentSmallCards[index]['imageUrl'],
+                      //     title: recentSmallCards[index]['title']),
+                    );
+                  },
+                  itemCount: library.length,
+                )
+        ]))
       ],
     );
   }

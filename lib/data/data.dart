@@ -218,7 +218,8 @@ List<Map> recentlyPlayed = [
     'title': 'Liked Songs',
     'type': 'Liked',
     'songs': songs,
-    'colors': [const Color(0xFF523ba0), Colors.transparent]
+    'colors': [const Color(0xFF523ba0), Colors.transparent],
+    'isPinned': true
   },
   {
     'id': 2,
@@ -231,7 +232,8 @@ List<Map> recentlyPlayed = [
     'duration': '2h 40min',
     'type': 'Playlist',
     'songs': songs,
-    'colors': [const Color.fromARGB(255, 26, 176, 61), Colors.transparent]
+    'colors': [const Color.fromARGB(255, 26, 176, 61), Colors.transparent],
+    'isPinned': true
   },
   {
     'id': 3,
@@ -395,6 +397,7 @@ List<Map> charts = [
     'description':
         'Your daily update of the most played tracks right now - Global.',
     'name': 'Top 50 - Global',
+    'title': 'Top 50 - Global',
     'colors': [const Color(0xFF1e3264), Colors.transparent],
     'by': 'Spotify',
     'byAvatar':
@@ -402,6 +405,7 @@ List<Map> charts = [
     'duration': '2h 40min',
     'songs': songs,
     'likes': '263,222',
+    'type': 'Playlist'
   },
   {
     'id': 2,
@@ -725,5 +729,34 @@ List<Map> searchCategories = [
         "https://res.cloudinary.com/jgarden/image/upload/v1670683078/Spotify%20UI/Search%20Categories/ukndwcpxtn3ysggitcmz.jpg",
     "color": const Color(0xFF777777)
   },
-  
+];
+
+List<Map> library = [
+  recentlyPlayed[0],
+  recentlyPlayed[1],
+  {
+    'id': 3,
+    'type': 'Artist',
+    'title': 'Chelsea Cutler',
+    'imageUrl':
+        'https://res.cloudinary.com/jgarden/image/upload/v1670578189/Spotify%20UI/Artist%20Avatar/euzt6hgkfcfe00fxk3yp.jpg',
+  },
+  charts[0],
+  recentlyPlayed[3],
+  recentlyPlayed[2],
+  newReleases[3],
+  {
+    'id': 3,
+    'type': 'Artist',
+    'title': 'Phoebe Bridgers',
+    'imageUrl':
+        'https://res.cloudinary.com/jgarden/image/upload/v1670848816/Spotify%20UI/Artist%20Avatar/ote7nfxnehxobnevrqrg.jpg',
+  },
+  {
+    'id': 5,
+    'type': 'Artist',
+    'title': 'SIDEPIECE',
+    'imageUrl':
+        'https://res.cloudinary.com/jgarden/image/upload/v1670578410/Spotify%20UI/Artist%20Avatar/ifcyk7nzvkcqqhprgy8i.jpg',
+  },
 ];
