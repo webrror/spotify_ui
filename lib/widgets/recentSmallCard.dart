@@ -21,21 +21,22 @@ class RecentSmallCard extends StatelessWidget {
           children: [
             Container(
               width: screenWidth * 0.144,
-              decoration:BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(5),
-                  bottomLeft: Radius.circular(5),
-                ),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  
-                  image: NetworkImage(imageUrl))
-              ),
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(5),
+                    bottomLeft: Radius.circular(5),
+                  ),
+                  image: DecorationImage(
+                      fit: BoxFit.cover, image: NetworkImage(imageUrl))),
             ),
             Flexible(
               child: Container(
                 padding: EdgeInsets.all(screenHeight * 0.012),
-                child: Text(title, overflow: TextOverflow.ellipsis, maxLines: 1,),
+                child: Text(
+                  title,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
               ),
             )
           ],

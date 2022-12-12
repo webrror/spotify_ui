@@ -32,10 +32,9 @@ class Search extends StatelessWidget {
               preferredSize: Size(screenWidth, screenHeight * 0.07),
               child: Padding(
                 padding: EdgeInsets.only(
-                  left: screenWidth * 0.035,
-                  right: screenWidth * 0.035,
-                    bottom: screenHeight * 0.01
-                ),
+                    left: screenWidth * 0.035,
+                    right: screenWidth * 0.035,
+                    bottom: screenHeight * 0.01),
                 child: const SearchBar(),
               )),
         ),
@@ -68,7 +67,6 @@ class Search extends StatelessWidget {
             itemCount: searchCategories.length,
           )
         ]))
-        
       ],
     ));
   }

@@ -769,7 +769,7 @@ Map nowPlaying = {
       "https://res.cloudinary.com/jgarden/image/upload/v1670503242/Spotify%20UI/Album%20Arts/gmomfqbdcz7lmlma8tib.jpg",
   "color": const Color(0xFF372A46),
   "playerColor": const Color(0xFFBD94ED),
-  "playerColor2": Color.fromARGB(255, 151, 127, 180)
+  "playerColor2": const Color.fromARGB(255, 151, 127, 180)
 };
 
 List settingOptions = [

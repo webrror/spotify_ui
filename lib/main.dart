@@ -14,12 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        useMaterial3: false,
-        primarySwatch: Colors.green,
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color.fromARGB(255, 22, 22, 22),
-        fontFamily: 'Circular'
-      ),
+          useMaterial3: false,
+          primarySwatch: Colors.green,
+          brightness: Brightness.dark,
+          scaffoldBackgroundColor: const Color.fromARGB(255, 22, 22, 22),
+          fontFamily: 'Circular'),
       debugShowCheckedModeBanner: false,
       home: const Base(),
     );

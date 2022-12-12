@@ -10,6 +10,12 @@ class CustomTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
-    return Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight / 40.92, letterSpacing: -0.4),);
+    return Text(
+      text,
+      style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: screenHeight / 40.92,
+          letterSpacing: -0.4),
+    );
   }
 }

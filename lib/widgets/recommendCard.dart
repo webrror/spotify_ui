@@ -26,15 +26,25 @@ class RecommendCard extends StatelessWidget {
             width: 150,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(2),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(imageUrl)
-              )
-            ),
-          ), 
+                image: DecorationImage(
+                    fit: BoxFit.cover, image: NetworkImage(imageUrl))),
+          ),
           Padding(
-            padding: EdgeInsets.only(left: screenWidth * 0.005, right: screenWidth * 0.035, top: screenHeight * 0.01),
-            child: Text(description, maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.start, style: TextStyle(color: Colors.white54, fontWeight: FontWeight.w300, fontSize:screenHeight / 66.92, letterSpacing: -0.1),),
+            padding: EdgeInsets.only(
+                left: screenWidth * 0.005,
+                right: screenWidth * 0.035,
+                top: screenHeight * 0.01),
+            child: Text(
+              description,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  color: Colors.white54,
+                  fontWeight: FontWeight.w300,
+                  fontSize: screenHeight / 66.92,
+                  letterSpacing: -0.1),
+            ),
           )
         ],
       ),

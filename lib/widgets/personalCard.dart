@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-
 class PersonalCard extends StatelessWidget {
   const PersonalCard({
     Key? key,
@@ -25,37 +24,49 @@ class PersonalCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            
             height: 150,
             width: 150,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(2),
                 image: DecorationImage(
                     fit: BoxFit.cover, image: NetworkImage(imageUrl))),
-            
           ),
           title != null
-          ? Padding(
-            padding: EdgeInsets.only(left: screenWidth * 0.005, right: screenWidth * 0.02, top: screenHeight * 0.01),
-            child: Text(
-              title!,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                  fontSize: screenHeight / 64.92,
-                  letterSpacing: 0),
-            ),
-          )
-          : const SizedBox(),
+              ? Padding(
+                  padding: EdgeInsets.only(
+                      left: screenWidth * 0.005,
+                      right: screenWidth * 0.02,
+                      top: screenHeight * 0.01),
+                  child: Text(
+                    title!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                        fontSize: screenHeight / 64.92,
+                        letterSpacing: 0),
+                  ),
+                )
+              : const SizedBox(),
           description != null
-          ? Padding(
-            padding: EdgeInsets.only(left: screenWidth * 0.005, right: screenWidth * 0.03, top: screenHeight * 0.005),
-            child: Text(description!, maxLines: 2, overflow: TextOverflow.ellipsis, textAlign: TextAlign.start, style: TextStyle(color: Colors.white54, fontWeight: FontWeight.w300, fontSize: screenHeight / 66.92, letterSpacing: -0.1)),
-          )
-          : const SizedBox()
+              ? Padding(
+                  padding: EdgeInsets.only(
+                      left: screenWidth * 0.005,
+                      right: screenWidth * 0.03,
+                      top: screenHeight * 0.005),
+                  child: Text(description!,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          color: Colors.white54,
+                          fontWeight: FontWeight.w300,
+                          fontSize: screenHeight / 66.92,
+                          letterSpacing: -0.1)),
+                )
+              : const SizedBox()
         ],
       ),
     );

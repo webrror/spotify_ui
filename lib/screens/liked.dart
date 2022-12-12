@@ -1,7 +1,5 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../data/data.dart';
 
@@ -35,7 +33,6 @@ class _LikedState extends State<Liked> {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     double top = 0;
 
@@ -55,7 +52,6 @@ class _LikedState extends State<Liked> {
                 return FlexibleSpaceBar(
                   collapseMode: CollapseMode.parallax,
                   centerTitle: true,
-
                   title: AnimatedOpacity(
                       curve: Curves.easeOut,
                       duration: const Duration(milliseconds: 100),
@@ -129,13 +125,6 @@ class _LikedState extends State<Liked> {
                       ],
                     ),
                   ),
-
-                  //   // child: Padding(
-                  //   //   padding: const EdgeInsets.only(
-                  //   //       left: 20.0, right: 20, top: 150),
-                  //   //   child: Text(data['title']),
-                  //   // ),
-                  // ),
                 );
               },
             ),

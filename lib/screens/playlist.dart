@@ -2,8 +2,6 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:spotify_ui/data/data.dart';
 
-import '../widgets/title.dart';
-
 class Playlist extends StatelessWidget {
   const Playlist({
     Key? key,
@@ -13,7 +11,6 @@ class Playlist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
     double top = 0;
     return Scaffold(
