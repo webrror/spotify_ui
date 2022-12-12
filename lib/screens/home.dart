@@ -1,9 +1,12 @@
+
+
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:spotify_ui/data/data.dart';
 import 'package:spotify_ui/screens/album.dart';
 import 'package:spotify_ui/screens/playlist.dart';
+import 'package:spotify_ui/screens/settings.dart';
 import 'package:spotify_ui/utils/timeRange.dart';
 import 'package:spotify_ui/widgets/personalCard.dart';
 import 'package:spotify_ui/widgets/recentSmallCard.dart';
@@ -55,7 +58,13 @@ class Home extends StatelessWidget {
             Bounceable(
                 curve: Curves.bounceOut,
                 reverseCurve: Curves.bounceIn,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Settings(),
+                      ));
+                },
                 child: const Icon(FluentIcons.settings_20_regular)),
             SizedBox(
               width: screenWidth * 0.03,
@@ -447,7 +456,7 @@ class Home extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: screenHeight * 0.12,
+              height: screenHeight * 0.2,
             )
           ]),
         )

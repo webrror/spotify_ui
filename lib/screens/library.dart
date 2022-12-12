@@ -247,7 +247,7 @@ class _LibraryState extends State<Library> {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   padding:
-                      const EdgeInsets.only(bottom: 150, left: 10, right: 10),
+                      const EdgeInsets.only(bottom: 200, left: 10, right: 10),
                   itemBuilder: (context, index) {
                     var data = library[index];
                     return Bounceable(
@@ -297,7 +297,7 @@ class _LibraryState extends State<Library> {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   padding: const EdgeInsets.only(
-                    bottom: 150,
+                    bottom: 200,
                   ),
                   itemBuilder: (context, index) {
                     var data = library[index];

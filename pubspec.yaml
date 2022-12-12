@@ -40,6 +40,10 @@ dependencies:
   fluentui_system_icons: ^1.1.189
   flutter_bounceable: ^1.0.3
   persistent_bottom_nav_bar_v2: ^4.2.6
+  # miniplayer:
+  #   git:
+  #     url: https://github.com/webrror/miniplayer.git
+  #     ref: test # branch name
 
 dev_dependencies:
   flutter_test:

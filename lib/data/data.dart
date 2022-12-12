@@ -760,3 +760,29 @@ List<Map> library = [
         'https://res.cloudinary.com/jgarden/image/upload/v1670578410/Spotify%20UI/Artist%20Avatar/ifcyk7nzvkcqqhprgy8i.jpg',
   },
 ];
+
+Map nowPlaying = {
+  "title": "iPad",
+  "artists": "The Chainsmokers",
+  "album": "So Far So Good",
+  "imageUrl":
+      "https://res.cloudinary.com/jgarden/image/upload/v1670503242/Spotify%20UI/Album%20Arts/gmomfqbdcz7lmlma8tib.jpg",
+  "color": const Color(0xFF372A46),
+  "playerColor": const Color(0xFFBD94ED),
+  "playerColor2": Color.fromARGB(255, 151, 127, 180)
+};
+
+List settingOptions = [
+  "Account",
+  "Data Saver",
+  "Languages",
+  "Playback",
+  "Devices",
+  "Car",
+  "Privacy & Social",
+  "Voice Assistants & Apps",
+  "Audio Quality",
+  "Storage",
+  "Notifications",
+  "About"
+];

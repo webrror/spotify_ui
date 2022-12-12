@@ -53,7 +53,7 @@ class Search extends StatelessWidget {
                 mainAxisExtent: screenHeight * 0.12,
                 mainAxisSpacing: 5,
                 crossAxisSpacing: 5),
-            padding: const EdgeInsets.only(left: 15, right: 15, bottom: 120),
+            padding: const EdgeInsets.only(left: 15, right: 15, bottom: 200),
             itemBuilder: (context, index) {
               //var data = searchCategories[index];
               return Bounceable(
